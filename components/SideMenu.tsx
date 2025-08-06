@@ -1,0 +1,56 @@
+import React, { FC } from "react";
+import Logo from "./Logo";
+import { headerData } from "@/constants/data";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+interface SidebarProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+const SideMenu: FC<SidebarProps> = ({ isOpen, onClose }) => {
+    const pathName =usePathname()
+    return (
+        <>
+            {/* Overlay */}
+            <div
+                className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                    }`}
+                onClick={onClose}
+            ></div>
+
+            {/* Sidebar */}
+            <div
+                className={`fixed top-0 left-0 z-50 h-screen w-72 bg-black border-r border-r-light_green text-white/70 shadow-xl transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
+                    }`}
+            >
+                <div className="flex items-center justify-between p-4">
+                    <Logo className="text-white" />
+                    <button
+                        onClick={onClose}
+                        className="hover:text-light_green hoverEffect"
+                    >
+                        X
+                    </button>
+                </div>
+
+                {/* Sidebar content */}
+                <div className="p-4 flex flex-col items-center space-y-3.5">
+                    {/* Menu Items */}
+                    {headerData?.map((item) => (
+                        <Link
+                            key={item?.title}
+                            href={item?.href}
+                            className={` hoverEffect hover:text-light_green ${pathName === item?.href && "text-white font-bold" }`}
+                        >
+                            {item?.title}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default SideMenu;
