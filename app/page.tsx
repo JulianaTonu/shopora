@@ -1,9 +1,10 @@
+import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 
 const Home = () => {
-  return <div className="">
+  return <Container className="">
     <h2 className="">Home</h2>
-  </div>
+  </Container>
 }
 
 export default Home;
