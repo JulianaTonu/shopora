@@ -4,6 +4,7 @@ import { headerData } from "@/constants/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SocialMedia from "./SocialMedia";
+import { useOutSideClick } from "@/hooks";
 
 interface SidebarProps {
     isOpen: boolean;
@@ -12,17 +13,19 @@ interface SidebarProps {
 
 const SideMenu: FC<SidebarProps> = ({ isOpen, onClose }) => {
     const pathName =usePathname()
+    const sidebarRef = useOutSideClick<HTMLDivElement>(onClose)
+
     return (
         <>
             {/* Overlay */}
-            <div
+            <div ref={sidebarRef}
                 className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                    }`}
+                    }hoverEffect`}
                 onClick={onClose}
             ></div>
 
             {/* Sidebar */}
-            <div
+            <div 
                 className={`fixed top-0 left-0 z-50 h-screen w-72 bg-black border-r border-r-light_green text-white/70 shadow-xl transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
