@@ -1,4 +1,4 @@
-
+"use client";
 
 import { AlignLeft } from 'lucide-react';
 import React, { useState } from 'react';
