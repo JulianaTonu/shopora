@@ -3,6 +3,8 @@ import Container from './Container';
 import SocialMedia from './SocialMedia';
 import FooterTop from './FooterTop';
 import Logo from './Logo';
+import Link from 'next/link';
+import { quickLinks } from '@/constants/data';
 
 
 const Footer = () => {
@@ -18,35 +20,27 @@ const Footer = () => {
                             <p className='text-sm pt-2 pb-3'>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
                             </p>
-                            <SocialMedia 
-                           
+                            <SocialMedia
+
                             />
                         </div>
-
+                        {/* //Quick Links */}
                         <div>
-                            <p className='text-lg text-gray-800'>COMPANY</p>
+                            <p className='text-lg font-semibold text-gray-800'>Quick Links</p>
                             <ul className='mt-3 flex flex-col gap-2 text-sm'>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Press</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Partners</a></li>
+                                {
+                                    quickLinks.map((item) => (
+                                        <li key={item?.title}>
+                                            <Link href={item?.href}>{item?.title}</Link></li>
+                                    ))
+                                }
                             </ul>
                         </div>
 
-                        <div>
-                            <p className='text-lg text-gray-800'>SUPPORT</p>
-                            <ul className='mt-3 flex flex-col gap-2 text-sm'>
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Safety Information</a></li>
-                                <li><a href="#">Cancellation Options</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Accessibility</a></li>
-                            </ul>
-                        </div>
+                        
 
                         <div className='max-w-80'>
-                            <p className='text-lg text-gray-800'>STAY UPDATED</p>
+                            <p className='text-lg font-semibold text-gray-800'>STAY UPDATED</p>
                             <p className='mt-3 text-sm'>
                                 Subscribe to our newsletter for inspiration and special offers.
                             </p>
