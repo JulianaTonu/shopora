@@ -39,7 +39,7 @@ const SocialMedia = () => {
               <Link
                 href={item.href}
                 target="_blank"
-                className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition"
+                className="p-2 rounded-full border  hover:bg-gray-100 transition"
               >
                 {item.icon}
               </Link>
