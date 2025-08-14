@@ -4,7 +4,7 @@ import SocialMedia from './SocialMedia';
 import FooterTop from './FooterTop';
 import Logo from './Logo';
 import Link from 'next/link';
-import { quickLinks } from '@/constants/data';
+import { categoriesData, quickLinks } from '@/constants/data';
 
 
 const Footer = () => {
@@ -27,9 +27,22 @@ const Footer = () => {
                         {/* //Quick Links */}
                         <div>
                             <p className='text-lg font-semibold text-gray-800'>Quick Links</p>
-                            <ul className='mt-3 flex flex-col gap-2 text-sm'>
+                            <ul className='mt-3 flex flex-col gap-4 text-sm text-gray-500'>
                                 {
                                     quickLinks.map((item) => (
+                                        <li key={item?.title}>
+                                            <Link href={item?.href}>{item?.title}</Link></li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+
+                        {/* //Categories */}
+                        <div>
+                            <p className='text-lg font-semibold text-gray-800'>Categories</p>
+                            <ul className='mt-3 flex flex-col gap-4 text-sm text-gray-500'>
+                                {
+                                    categoriesData.map((item) => (
                                         <li key={item?.title}>
                                             <Link href={item?.href}>{item?.title}</Link></li>
                                     ))
@@ -40,8 +53,8 @@ const Footer = () => {
                         
 
                         <div className='max-w-80'>
-                            <p className='text-lg font-semibold text-gray-800'>STAY UPDATED</p>
-                            <p className='mt-3 text-sm'>
+                            <p className='text-lg font-semibold text-gray-800'>Newslater</p>
+                            <p className='mt-3 text-sm text-gray-500'>
                                 Subscribe to our newsletter for inspiration and special offers.
                             </p>
                             <div className='flex items-center mt-4'>
@@ -54,13 +67,9 @@ const Footer = () => {
                         </div>
                     </div>
                     <hr className='border-gray-300 mt-8' />
-                    <div className='flex flex-col md:flex-row gap-2 items-center justify-between py-5'>
-                        <p>© {new Date().getFullYear()} <a href="https://prebuiltui.com">PrebuiltUI</a>. All rights reserved.</p>
-                        <ul className='flex items-center gap-4'>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Sitemap</a></li>
-                        </ul>
+                    <div className='flex flex-col md:flex-row gap-2 items-center justify-center py-5'>
+                        <p className='text-gray-500'>© {new Date().getFullYear()} <a href="https://prebuiltui.com" className='text-gray-800 font-bold capitalize'>SHOPORA</a>. All rights reserved.</p>
+                       
                     </div>
                 </div>
             </Container>
