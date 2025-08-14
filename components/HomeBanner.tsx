@@ -9,7 +9,7 @@ const HomeBanner = () => {
         items-center justify-between'>
 
             <div>
-                <h1 className='text-2xl font-semibold text-dark_green mb-2'>
+                <h1 className='text-2xl font-semibold text-dark_green mb-5'>
                     Grab Upto 50% off on <br />
                     Selected headphone
                 </h1>
