@@ -6,8 +6,8 @@ export const headerData = [
     {title: "Hot Deal", href:"/deal"},
 ]
 export const quickLinks = [
-    {title: "About Us", href:"/about Us"},
-    {title: "Contact us", href:"/contact us"},
+    {title: "About Us", href:"/about-us"},
+    {title: "Contact us", href:"/contact-us"},
     {title: "Terms & Conditions", href:"/terms"},
     {title: "Privacy Policy", href:"/policy"},
     {title: "FAQs", href:"/faqs"},

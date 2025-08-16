@@ -18,7 +18,7 @@ const Footer = () => {
                         <div className=' max-w-80'>
                             <Logo />
                             <p className='text-sm pt-2 pb-3'>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text
                             </p>
                             <SocialMedia
 
@@ -31,7 +31,7 @@ const Footer = () => {
                                 {
                                     quickLinks.map((item) => (
                                         <li key={item?.title}>
-                                            <Link href={item?.href}>{item?.title}</Link></li>
+                                            <Link href={`q-link/${item?.href}`}>{item?.title}</Link></li>
                                     ))
                                 }
                             </ul>
@@ -44,7 +44,7 @@ const Footer = () => {
                                 {
                                     categoriesData.map((item) => (
                                         <li key={item?.title}>
-                                            <Link href={item?.href}>{item?.title}</Link></li>
+                                            <Link href={`category/${item?.href}`}>{item?.title}</Link></li>
                                     ))
                                 }
                             </ul>
